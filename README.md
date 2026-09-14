@@ -11,7 +11,7 @@ This repository contains LabVIEW VIs for communicating with three commonly used 
 
 The purpose of this project is to demonstrate how standard I²C devices can be controlled directly from LabVIEW through LINX without requiring a dedicated LabVIEW driver for each device.
 The implementation covers low-level I²C communication, register access, byte manipulation, sensor conversion formulas, BCD conversion, ADC configuration, and multi-channel acquisition.
-# -------------------------------------------------
+
 **# System Architecture**
 
 The communication architecture is:
