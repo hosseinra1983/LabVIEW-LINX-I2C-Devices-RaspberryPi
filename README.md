@@ -99,6 +99,7 @@ Example with all three devices connected:
 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 
 40: 40 -- -- -- -- -- -- -- 48 -- -- -- -- -- -- --
+
 50: -- 51 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 Here:
@@ -348,9 +349,7 @@ The correct signed interpretation is:
 
 Therefore:
 
--3 × 0.000125
-=
--0.000375 V
+-3 × 0.000125 = -0.000375 V
 
 which correctly represents approximately 0 V.
 For this reason, the LabVIEW driver converts the assembled U16 value into an **I16 signed value before voltage scaling**.
