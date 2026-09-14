@@ -31,7 +31,7 @@ The communication architecture is:
          Humidity
 
 The Raspberry Pi acts as the I²C master, while LabVIEW performs device configuration, data acquisition, conversion, and processing.
-# -------------------------------------------------
+
 **# Hardware Platform**
 
 The project was developed for:
@@ -48,7 +48,7 @@ The project was developed for:
 | Logic Voltage           | 3.3 V                  |
 
 A common ground must be used between the Raspberry Pi and all connected modules.
-# -------------------------------------------------
+
 # Raspberry Pi I²C Wiring
 
 Raspberry Pi 4 or 5               I²C Device
@@ -61,7 +61,7 @@ GPIO3  / Pin 5 ------------------ SCL
 Most commercial breakout modules already contain pull-up resistors on SDA and SCL.
 If bare devices are used, external pull-ups such as approximately `4.7 kΩ` to `3.3 V` may be required.
 Do not pull Raspberry Pi I²C lines to 5 V.
-# -------------------------------------------------
+
 **# Raspberry Pi Configuration**
 
 Enable I²C:
@@ -106,7 +106,7 @@ Here:
 0x40 → SHT20
 0x48 → ADS1115
 0x51 → PCF8563
-# -------------------------------------------------
+
 **# 1. SHT20 Temperature and Humidity Sensor**
 
 The SHT20 communicates through I²C at address:
@@ -158,7 +158,7 @@ RH [%] =
 
 The two status bits in the received measurement value should be removed before performing the conversion.
 
-# -------------------------------------------------
+
 **# 2. PCF8563 Real-Time Clock**
 
 The PCF8563 RTC uses:
@@ -222,7 +222,7 @@ LabVIEW Date/Time
 
 The VI can also obtain the current PC time, convert the values to BCD, build the required byte array, and write the time to the PCF8563.
 A particularly important implementation detail is that the correct LINX **I²C channel reference must be passed to the read operation**.
-# -------------------------------------------------
+
 **# 3. ADS1115 16-bit ADC**
 
 The ADS1115 is a 16-bit delta-sigma ADC with four analog inputs.
@@ -454,7 +454,7 @@ Device-specific conversion
 LINX Close
 
 The device protocol is implemented entirely in LabVIEW.
-# -------------------------------------------------
+
 # LabVIEW VI Design
 
 A modular design is recommended:
@@ -476,7 +476,7 @@ A modular design is recommended:
 │   └── Convert to voltage
 
 This allows the device logic to be reused in larger monitoring applications.
-# -------------------------------------------------
+
 **# Important Notes**
 
 Current Raspberry Pi OS releases may require additional work to install or configure the older MakerHub LINX runtime. The actual LINX installation procedure can depend on Raspberry Pi OS version, architecture, and LabVIEW version.
